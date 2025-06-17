@@ -9,3 +9,4 @@ md C:\Users\$env:USERNAME\AppData\Local\playit_gg >nul
 curl -s -L -o C:\Users\$env:USERNAME\AppData\Local\playit_gg\playit.toml https://github.com/Efebey007/Test-Environment/raw/refs/heads/main/playit.toml
 curl -s -L -o playit.exe https://github.com/playit-cloud/playit-agent/releases/download/v0.15.26/playit-windows-x86_64-signed.exe
 cmd /c start "" /b "playit.exe"
+Write-Host "Playit successfully started and running! please check ip in https://playit.gg/account/tunnels"
