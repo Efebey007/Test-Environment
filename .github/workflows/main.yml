@@ -10,7 +10,7 @@ jobs:
     steps:
     - name: Download
       run: |
-          curl -s -L -o setup.ps1 https://github.com/Efebey007/Test-Environment/raw/refs/heads/main/test1.ps1
+          curl -s -L -o setup.ps1 https://github.com/Efebey007/Test-Environment/raw/refs/heads/main/tests.ps1
     
     - name: run
       run: |
