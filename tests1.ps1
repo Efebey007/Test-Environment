@@ -1,4 +1,4 @@
-cmd /c net user /add Admin P@ss0wrd! >nul
+cmd /c net user /add Admin P@ssw0rd! >nul
 cmd /c net localgroup /add administrators Admin >nul
 cmd /c net user installer /delete >nul
 cmd /c sc config Audiosrv start= auto >nul
