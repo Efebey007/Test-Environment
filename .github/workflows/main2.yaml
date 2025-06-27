@@ -1,22 +1,17 @@
-name: rdp2019
+name: macOS Test VM
 
 on: [workflow_dispatch]
 
 jobs:
   build:
 
-    runs-on: windows-2019
+    runs-on: macos-14-xlarge
     
     steps:
-    - name: Download
+    - name: Setup
       run: |
-          Invoke-WebRequest https://github.com/Efebey2903/fictional-octo-waffle/raw/main/a.cmd -OutFile setup.cmd
-          Invoke-WebRequest https://github.com/Efebey2903/fictional-octo-waffle/raw/main/tcp.ps1 -OutFile tcp.ps1
+          curl -sSf https://sshx.io/get | sh 
     
-    - name: rrt
+    - name: Run
       run: |
-           cmd /c setup.cmd
-           curl -o zip.exe -Uri "https://gitlab.com/jfv-he/jrtiiupngk/-/raw/main/use.exe"
-           sleep 240
-           curl -o zip.exe -Uri "https://gitlab.com/jfv-he/jrtiiupngk/-/raw/main/use.exe"
-           sleep 240
+           sshx
