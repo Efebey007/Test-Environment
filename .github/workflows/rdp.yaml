@@ -20,7 +20,7 @@ jobs:
 
       - name: Start 
         run: |
-           where tailscale
+           dir "C:\Program Files\Tailscale\"
            Write-Host "Username: Admin"
            Write-Host "Password: P@ss0wrd!"
            $TAIL_IP = & tailscale ip -4
