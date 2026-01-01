@@ -1,10 +1,9 @@
 $MsiUrl  = "https://pkgs.tailscale.com/stable/tailscale-setup-1.92.3-amd64.msi"
 $MsiPath = "$env:TEMP\tailscale.msi"
-$USER = "whoami"
 Invoke-WebRequest -Uri $MsiUrl -OutFile $MsiPath
 Start-Process msiexec -ArgumentList "/i `"$MsiPath`" /qn /norestart" -Wait
 cmd /c net user installer /delete >nul
 cmd /c sc config Audiosrv start= auto >nul
 cmd /c sc start audiosrv >nul
-net user $USER P@ssw0rd!
+net user runneradmin P@ssw0rd!
 cmd /c '"C:\Program Files\Tailscale\tailscale.exe" up --auth-key=tskey-auth-kBSfbTf2z511CNTRL-vTCwbrXKUjMBgXC9zVaRjMUWtXCuZiLN7'
