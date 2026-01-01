@@ -20,7 +20,7 @@ jobs:
 
       - name: Start 
         run: |
-           tailscale up
+           where tailscale
            Write-Host "Username: Admin"
            Write-Host "Password: P@ss0wrd!"
            $TAIL_IP = & tailscale ip -4
