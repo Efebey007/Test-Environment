@@ -1,6 +1,9 @@
 @echo off
 setlocal enabledelayedexpansion
 
+:: Set Reemo KEY
+set "REEMO_KEY=f5acdf09f0f5"
+
 :: 1. Auto-launch as Administrator
 net session >nul 2>&1
 if %errorlevel% neq 0 (
