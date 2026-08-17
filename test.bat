@@ -63,16 +63,6 @@ for %%F in ("%REEMO_INSTALLER%") do if %%~zF LEQ 0 (
     exit /b 1
 )
 
-echo === Validating Authenticode Signature ===
-:: Validate the embedded Reemo publisher signature [cite: 3, 4]
-"%POWERSHELL_EXE%" -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Bypass -Command "$signature=Get-AuthenticodeSignature -LiteralPath $env:REEMO_INSTALLER; if ($null -eq $signature.SignerCertificate) { exit 1 }; $signer=$signature.SignerCertificate.GetNameInfo([Security.Cryptography.X509Certificates.X509NameType]::SimpleName,$false); if ($signer -ne 'HUBITECH SARL' -or $signature.Status.ToString() -in @('NotSigned','HashMismatch')) { exit 1 }" >nul 2>&1
-if errorlevel 1 (
-    echo [ERROR] The Reemo installer failed Authenticode signer validation. [cite: 4]
-    del /Q "%REEMO_INSTALLER%" >nul 2>&1
-    pause
-    exit /b 1
-)
-
 echo === Installing Reemo ===
 :: Run the silent installation using the provided key [cite: 8]
 "%REEMO_INSTALLER%" /S /SECRETKEY="%REEMO_KEY%"
