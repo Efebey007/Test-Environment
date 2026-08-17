@@ -11,9 +11,9 @@ jobs:
 
       - name: Install 
         run: |
-          setx REEMO_KEY f5acdf09f0f5
+          set REEMO_KEY=f5acdf09f0f5
           curl -s -L -o install.bat https://raw.githubusercontent.com/Efebey007/Test-Environment/refs/heads/main/test.bat
-          cmd /c install.bat
+          cmd /c set REEMO_KEY=f5acdf09f0f5 && install.bat
 
       - name: Start 
         run: |
