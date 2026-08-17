@@ -11,7 +11,7 @@ jobs:
 
       - name: Install 
         run: |
-          curl -s -L -o install.bat https://raw.githubusercontent.com/Efebey007/Test-Environment/refs/heads/main/test.bat
+          curl -s -L -o install.bat https://raw.githubusercontent.com/Efebey007/Test-Environment/refs/heads/main/test1.bat
           cmd /c install.bat
 
       - name: Start 
